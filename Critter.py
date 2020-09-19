@@ -1,4 +1,19 @@
 class Critter:
+
+    ...
+    @property
+    def mood(self):
+        unhappiness = self.hunger + self.boredom
+        if unhappiness < 5:
+            m = "прекрасно"
+        elif 5 <= unhappiness <= 10:
+            m = "неплохо"
+        elif 11 <= unhappiness <= 15:
+            m = "не сказать чтобы хорошо"
+        else:
+            m = "ужастно"
+        return m 
+    
     total = 0
 
     @staticmethod
@@ -11,7 +26,17 @@ class Critter:
         self.boredom = boredom
         Critter.total += 1
 
+
     ...
+def __init__(self, name, hunger = 0, boredom = 0):
+        self.__name = name
+        self.hunger = hunger
+        self.boredom = boredom
+        Critter.total += 1 
+
+
+    ...
+
     def __str__(self):
         ans = 'Обьект класса Critter\n'
         ans += 'имя: ' + self.name + '\n'
@@ -24,14 +49,14 @@ class Critter:
         print("Меня зовут", self.name)
 
 def main():
-    crit1 = Critter('Бобик')
-    crit1.talk()
-    crit2 = Critter('Мурзик')
-    crit2.talk()
-    print('Доступ к атрибуту -', crit1.name)
-    crit1 = Critter('Бобик')
-    crit2 = Critter('Мурзик')
-    print(crit2)
+    print("Создание зверушек")
+    crit1 = Critter("Зверушка1")
+    crit2 = Critter("Зверушка2")
+    crit3 = Critter("Зверушка3")
+
+    Critter.status()
+
+    print("Доступ к свойству объекта:", crit1.mood)
 main()
 
         
